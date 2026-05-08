@@ -11,9 +11,7 @@ def setup_logger():
         return logger
 
     # Format for log messages
-    formatter = logging.Formatter(
-        "[%(threadName)s] %(levelname)s: %(message)s"
-    )
+    formatter = logging.Formatter("%(message)s")
 
     # Create a console handler to output log messages to the console
     console_handler = logging.StreamHandler()

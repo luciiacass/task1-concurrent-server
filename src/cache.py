@@ -1,13 +1,12 @@
 import threading
 import time
 
-# Cache entries will hold the cached value, the timestamp of when it was computed, a flag indicating if the value is ready, and a condition variable for waiting threads.
 class CacheEntry:
     def __init__(self):
-        self.value = None
-        self.timestamp = None
-        self.ready = False
-        self.condition = threading.Condition()
+        self.value = None # cached value once it's computed.
+        self.timestamp = None # time when the value was computed, used for TTL validation.
+        self.ready = False # indicates whether the value has been computed and is ready to be used.
+        self.condition = threading.Condition() # condition variable to allow threads to wait for the value to be computed if it's not ready yet.
 
 # A thread-safe cache implementation with time-to-live (TTL) functionality
 class ThreadSafeCache:

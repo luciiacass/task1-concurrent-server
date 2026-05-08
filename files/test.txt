@@ -1,0 +1,4 @@
+This is a text EXAMPLE to Check if the Server count CORRECTLY the number
+of UPPERcase LETTERS in a File .text
+
+ABCdEfghIJKlMnOPQrsTUVwzxYZ

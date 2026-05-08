@@ -1,0 +1,23 @@
+case 1. no real concurrency (sequential) -> no waiting messages
+
+python concurrency_client.py --requests 5 --concurrency 1
+num_workers = 6
+max_active_workers = 6
+
+case 2. high concurrency -> the first worker compute the result and the others wait until it finish. When it finish, the rest 'hit'
+
+python concurrency_client.py --requests 20 --concurrency 20
+num_workers = 6
+max_active_workers = 6
+
+case 3. limited parallelism -> a lot of waiting messages
+
+python concurrency_client.py --requests 20 --concurrency 20
+num_workers = 10
+max_active_workers = 2
+
+case 4. maximun parallelism 
+
+python concurrency_client.py --requests 50 --concurrency 50
+num_workers = 50
+max_active_workers = 50

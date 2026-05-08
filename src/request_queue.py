@@ -1,8 +1,7 @@
-import threading # This module provides a way to create and manage threads in Python.
+import threading
 
 #
 class RequestQueue:
-    # This class implements a thread-safe queue for handling incoming requests. 
     def __init__(self):
         self._queue = [] # This list will hold the requests in the queue.
         self._lock = threading.Lock() # This lock will be used to synchronize access to the queue. (protect the queue)
@@ -24,7 +23,7 @@ class RequestQueue:
 
             return self._queue.pop(0) # Remove and return the first request in the queue.
 
-    def close(self): # This method closes the queue. 
+    def close(self): 
         with self._not_empty:
             self._closed = True
             self._not_empty.notify_all()
